@@ -1,0 +1,7 @@
+package fleetflow;
+import java.util.*;
+public class Main {
+ public static void main(String[] args){String path=args.length>0?args[0]:"data/Delivery_Logistics.csv";try{DataRepository data=new DataRepository(path);Scanner sc=new Scanner(System.in);System.out.println("============================================\n   FLEETFLOW - INTELLIGENT LOGISTICS SYSTEM\n   Java | Advanced Algorithms | 6 Modules\n============================================");System.out.println("Loaded "+data.count()+" delivery records from "+path);
+ while(true){System.out.println("\n============== MAIN MENU ==============\n1. Module 1 - FleetFlow data integration\n2. Module 2 - String algorithms\n3. Module 3 - Dynamic programming\n4. Module 4 - Network flow\n5. Module 5 - NP-completeness & approximation\n6. Module 6 - Randomized & parallel algorithms\n7. Dataset summary\n0. Exit");int c=Util.readInt(sc,"Select module: ");switch(c){case 1:Module1.menu(sc,data);break;case 2:Module2.menu(sc);break;case 3:Module3.menu(sc);break;case 4:Module4.menu(sc);break;case 5:Module5.menu(sc);break;case 6:Module6.menu(sc);break;case 7:data.summary();break;case 0:System.out.println("Thank you for using FleetFlow.");return;default:System.out.println("Invalid choice. Choose 0-7.");}}
+ }catch(Exception e){System.err.println("Could not start FleetFlow: "+e.getMessage());System.err.println("Run from the project root folder and check data/Delivery_Logistics.csv exists.");}}
+}
